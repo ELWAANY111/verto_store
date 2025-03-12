@@ -26,7 +26,7 @@ const Navbar = () => {
       </div>
 
       {/* Sticky Header */}
-      <header className="w-full flex items-center justify-between px-6 py-3 shadow-lg bg-black text-white relative rounded-b-lg sticky top-0 z-50">
+      <header className="w-full flex items-center justify-between  shadow-lg bg-black text-white relative rounded-b-lg sticky top-0 z-50">
         {/* Mobile Menu Button */}
         <div className="flex items-center space-x-4">
           <button
