@@ -1,21 +1,29 @@
 // src/Components/authcontext.jsx
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
 // Create Context
 const AuthContext = createContext();
 
-// AuthProvider component that will wrap the app to provide context
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null); // Assuming you will set user data here
+  // Initialize user from localStorage
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
 
-  // Example function to simulate logging in
+  // Optionally, keep localStorage in sync if needed
+  useEffect(() => {
+    // This effect could listen to storage events if multiple tabs are used.
+  }, []);
+
   const login = (userData) => {
-    setUser(userData); // In a real app, you'd authenticate with an API
+    setUser(userData);
+    localStorage.setItem("user", JSON.stringify(userData));
   };
 
-  // Example function to simulate logging out
   const logout = () => {
     setUser(null);
+    localStorage.removeItem("user");
   };
 
   return (
@@ -25,7 +33,6 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Custom hook to access AuthContext
 export const useAuthContext = () => {
   const context = useContext(AuthContext);
   if (!context) {
@@ -33,3 +40,4 @@ export const useAuthContext = () => {
   }
   return context;
 };
+

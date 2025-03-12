@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { FaWhatsapp } from 'react-icons/fa';  // Only importing WhatsApp icon
 
 const WhatsAppButton = () => {
@@ -18,9 +18,9 @@ const WhatsAppButton = () => {
       {/* WhatsApp Button */}
       <button
         onClick={handleClick}
-        className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg flex items-center justify-center hover:bg-green-600 transition duration-300"
+        className="fixed bottom-20 right-10 bg-green-500 text-white p-3 rounded-full shadow-lg flex items-center justify-center hover:bg-green-600 transition duration-300"
         style={{
-          fontSize: '30px', // Adjusted icon size
+          fontSize: '36px', // Adjusted icon size
           zIndex: 1000
         }}
       >

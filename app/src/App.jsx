@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./Components/Header";
@@ -17,17 +16,17 @@ import ErrorBoundary from "./Components/ErrorBoundary";
 import MaleCategoriesSlider from "./Components/MaleCategoriesSlider";
 import MensSlider from "./Components/Swiper";
 import { AuthProvider } from "./Components/authcontext";
-import { useAuthContext } from "./Components/authcontext"; // Correct import
+import { useAuthContext } from "./Components/authcontext";
 
 const AppContent = () => {
-  const location = useLocation(); // Use useLocation to get the current path
-  const { user } = useAuthContext(); // Access the user data from AuthContext
+  const location = useLocation();
+  const { user } = useAuthContext();
 
   return (
     <div>
       <Header />
 
-      {/* ✅ Show the sliders only on the home page */}
+      {/* Show sliders only on the home page */}
       {location.pathname === "/" && (
         <>
           <MensSlider />
@@ -40,8 +39,8 @@ const AppContent = () => {
         <Route path="/product/:id" element={<ErrorBoundary><ProductDetails /></ErrorBoundary>} />
         <Route path="/cart" element={<ErrorBoundary><Cart /></ErrorBoundary>} />
 
-        {/* Add a route for the dashboard if the user is an admin */}
-        {user?.role === "admin" && (
+        {/* Only show dashboard route for admin users */}
+        {user && user.role === "admin" && (
           <Route path="/dashboard" element={<ErrorBoundary><DashBoard /></ErrorBoundary>} />
         )}
 
@@ -60,7 +59,7 @@ const AppContent = () => {
 
 const App = () => (
   <Router>
-    <AuthProvider> {/* Wrap your app with AuthProvider */}
+    <AuthProvider>
       <AppContent />
     </AuthProvider>
   </Router>
