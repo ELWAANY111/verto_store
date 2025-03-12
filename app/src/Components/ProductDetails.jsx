@@ -104,11 +104,12 @@ const ProductDetail = () => {
     <div className="flex flex-col lg:flex-row items-center lg:items-start p-6 gap-10">
       {/* عرض الصور */}
       <div className="w-full lg:w-1/2 flex flex-col items-center">
-        <img
-          src={`http://localhost:5000${mainImage}`}
-          alt={product.name}
-          className="w-full max-h-[500px] object-cover rounded-lg shadow-lg"
-        />
+     <img
+  src={`http://localhost:5000${mainImage}`}
+  alt={product.name}
+  className="w-full sm:h-full object-cover rounded-lg shadow-lg"
+/>
+
         <div className="flex gap-2 mt-4">
           {product.images.map((img, index) => (
             <img

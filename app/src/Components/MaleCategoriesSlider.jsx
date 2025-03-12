@@ -52,21 +52,26 @@ const MaleCategoriesSlider = () => {
 
   return (
     <div className="max-w-6xl mx-auto my-8">
-      <h2 className="text-3xl font-bold text-center mb-4 text-black">Male Categories</h2>
+      <h2 className="text-3xl font-bold text-center mb-4 text-black">Categories</h2>
       <Slider {...settings}>
         {categories.map((cat, index) => (
           <div key={index} className="px-2">
-            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-lg border border-gray-300 bg-white">
+            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-lg border border-gray-300 bg-white group">
               <img
                 src={cat.image}
                 alt={cat.name}
-                className="w-full h-full object-cover transform transition duration-500 hover:scale-105"
+                className="w-full h-full object-cover transform transition duration-500 group-hover:scale-105"
               />
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+              {/* Gradient overlay with lighter effect on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-20 group-hover:opacity-10 transition-opacity duration-300"></div>
               {/* Text overlay */}
               <div className="absolute bottom-0 w-full text-center py-4">
                 <h3 className="text-2xl font-semibold text-white">{cat.name}</h3>
+              </div>
+
+              {/* Coming Soon Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
+                <span className="text-3xl font-bold">Coming Soon!</span>
               </div>
             </div>
           </div>

@@ -14,10 +14,10 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission (you could send data to your server here)
-    console.log("تم إرسال الرسالة:", formData);
-    alert("✅ تم إرسال رسالتك بنجاح!");
+    console.log("❌ حدث خطأ أثناء الارسال تواصل عن طريق الواتس!", formData);
+    alert("❌ حدث خطأ أثناء الارسال تواصل عن طريق الواتس!");
   };
-
+  
   return (
     <div className="p-6 max-w-7xl mx-auto">
       <h1 className="text-3xl font-bold text-center mb-8">تواصل معنا</h1>
