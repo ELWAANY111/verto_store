@@ -13,7 +13,7 @@ import Contact from "./Components/Contact";
 import Shop from "./Components/Shop";
 import PaymentOptions from "./Components/PaymentOptions";
 import ErrorBoundary from "./Components/ErrorBoundary";
-import MaleCategoriesSlider from "./Components/MaleCategoriesSlider";-
+import MaleCategoriesSlider from "./Components/MaleCategoriesSlider";
 import MensSlider from "./Components/Swiper";
 
 const AppContent = () => {
